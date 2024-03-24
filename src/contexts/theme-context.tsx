@@ -21,4 +21,5 @@ export function ThemeProvider({ children }: Props) {
       {children}
     </ThemeContext.Provider>
   );
+
 }

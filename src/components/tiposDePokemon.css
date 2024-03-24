@@ -1,0 +1,77 @@
+/* .typeOfPokemon {
+    width: 100%;
+}
+.typeOfPokemon * {
+    margin: 0;
+}
+/* .headings {
+    padding: 0px 10px; */
+    /* margin-top: 0; */
+    /* margin: 10px; */
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+.headings > * > * {
+    text-decoration: underline;
+    background-color: azure;
+} 
+
+*/
+.typeOfPokemon {
+    margin: 0%;
+    width: 100%;
+}
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 100%;
+    grid-column-gap: 10px;
+    
+}
+.heading {
+    text-align: center;
+    margin: 2px;
+}
+/* .lista {
+    height: 80%;
+} */
+.debilidades{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: space-around;
+        margin: 0;
+        
+    
+} 
+.tipos {
+    text-transform: capitalize;
+    text-align: center;
+    text-decoration: underline;
+    margin: 0;
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+    height: auto;
+} 
+.tipos > h3 {
+    margin: 0%;
+}
+
+.items span {
+    position: relative;
+    left: -8px;
+    padding-left: 0px;
+
+}
+
+.fila2 {
+    background-color: white;
+    padding: 5px;
+    border-radius: 4px;
+    
+}
+

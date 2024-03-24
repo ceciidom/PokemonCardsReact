@@ -1,18 +1,22 @@
 import c from "classnames";
 import { useTheme } from "contexts/use-theme";
+//ambos hooks: usePokemon y usePokemon list vienen de acá: "hooks"
 import { usePokemon, usePokemonList, useTextTransition } from "hooks";
 import { useState } from "react";
 import { randomMode } from "utils/random";
 import { Button } from "./button";
 import { LedDisplay } from "./led-display";
+import TipoDePokemon from "../components/tipoDePokemon";
 
 import "./pokedex.css";
 
 export function Pokedex() {
   const { theme } = useTheme();
   const { ready, resetTransition } = useTextTransition();
+  //pokeomList viene de aqui: de este hook: usePokemonList()
   const { pokemonList } = usePokemonList();
   const [i, setI] = useState(0);
+  //el selected Pokemon viene de aqui: nombre de la variable: pokemon. viene del use state usePokemon que pasa el parametro pokemonList[i]
   const { pokemon: selectedPokemon } = usePokemon(pokemonList[i]);
   const { pokemon: nextPokemon } = usePokemon(pokemonList[i + 1]);
 
@@ -57,10 +61,14 @@ export function Pokedex() {
               ready && "ready",
               ready && `ready--${randomMode()}`
             )}
-          >
+          > 
+          {/* //this displays the name of the pokemon */}
             {selectedPokemon?.name}
           </div>
-        </div>
+        </div> {selectedPokemon && (
+           <TipoDePokemon
+              selectedPokemon={selectedPokemon} />
+        )}
       </div>
       <div className="panel right-panel">
         <div className="controls leds">
@@ -90,3 +98,4 @@ export function Pokedex() {
     </div>
   );
 }
+
