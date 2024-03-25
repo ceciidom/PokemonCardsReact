@@ -68,6 +68,7 @@
   text-transform: uppercase;
   font-size: larger;
   font-weight: 800;
+  position: relative;
 }
 
 .right-panel {
@@ -140,4 +141,31 @@
 
 .ready--slow {
   transition: filter 500ms linear 800ms;
+}
+
+.addToTeam {
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+.plusMinus {
+  background-image: linear-gradient(to bottom right, gray, gainsboro);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.team {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.team > h2 {
+  margin-bottom: 0;
+  text-decoration: underline;
+}
+.team-member {
+  display: flex;
 }

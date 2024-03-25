@@ -33,6 +33,13 @@
 .heading {
     text-align: center;
     margin: 2px;
+    background-color: rgb(221, 221, 221, 0.6);
+    border-radius: 5px;
+    color:rgb(0, 0, 0);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* .lista {
     height: 80%;
@@ -75,3 +82,13 @@
     
 }
 
+.onHover {
+    cursor: pointer;
+}
+.hide {
+    display: none;
+}
+
+.onHover:hover + .hide {
+    display:block
+}

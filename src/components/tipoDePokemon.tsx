@@ -23,9 +23,9 @@ function TipoDePokemon({ selectedPokemon }: Props) {
     <div className="typeOfPokemon">
       <div className="grid">
         <div className="col1">
-          <h3 className="heading">Tipos:</h3>
+          <h3 className="heading onHover">Tipos</h3>
           {/* //Segundo intento: TYPES*/}
-          <div className="tipos fila2">
+          <div className="tipos fila2 hide">
             <>
               {selectedPokemonTypes.map((type, index) => (
                 <h3 key={index}>{type}</h3>
@@ -34,9 +34,9 @@ function TipoDePokemon({ selectedPokemon }: Props) {
           </div>
         </div>
         <div className="col2">
-          <h3 className="heading">Debilidades:</h3>
+          <h3 className="heading onHover">Debilidades</h3>
           {/* //Segundo intento: DEBILIDADES*/}
-          <div className="lista fila2">
+          <div className="lista fila2 hide">
             <ul className="debilidades">
               {selectedPokemonTypes.map((type) => (
                 <>

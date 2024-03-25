@@ -9,6 +9,7 @@ import { LedDisplay } from "./led-display";
 import TipoDePokemon from "../components/tipoDePokemon";
 
 import "./pokedex.css";
+import { Pokemon } from "models";
 
 export function Pokedex() {
   const { theme } = useTheme();
@@ -19,6 +20,22 @@ export function Pokedex() {
   //el selected Pokemon viene de aqui: nombre de la variable: pokemon. viene del use state usePokemon que pasa el parametro pokemonList[i]
   const { pokemon: selectedPokemon } = usePokemon(pokemonList[i]);
   const { pokemon: nextPokemon } = usePokemon(pokemonList[i + 1]);
+
+  //Estado para almacenar el pokemon seleccionado al equipo:
+  const [team, setTeam] = useState<Pokemon[]>([]);
+
+  //Función para agregar uno al equipo
+  const addToTeam = () => {
+    if (selectedPokemon && team.length < 6 ) {
+      setTeam([...team, selectedPokemon]);
+    } else {alert("Has llegado al límite. Elimina un Pokemon para añadir uno nuevo a tu equipo.")}
+  };
+  //Función para eliminar uno del equipo:
+  const removeFromTeam = (index: number) => {
+    const updatedTeam = [...team];
+    updatedTeam.splice(index, 1);
+    setTeam(updatedTeam);
+  }
 
   const prev = () => {
     resetTransition();
@@ -61,14 +78,18 @@ export function Pokedex() {
               ready && "ready",
               ready && `ready--${randomMode()}`
             )}
-          > 
-          {/* //this displays the name of the pokemon */}
+          >
+            {/* //this displays the name of the pokemon */}
             {selectedPokemon?.name}
           </div>
-        </div> {selectedPokemon && (
-           <TipoDePokemon
-              selectedPokemon={selectedPokemon} />
-        )}
+          {/* boton agregar al equipo */}
+          <div>
+            <button className="addToTeam plusMinus" onClick={addToTeam}>
+              +
+            </button>
+          </div>
+        </div>
+        {selectedPokemon && <TipoDePokemon selectedPokemon={selectedPokemon} />}
       </div>
       <div className="panel right-panel">
         <div className="controls leds">
@@ -94,6 +115,18 @@ export function Pokedex() {
           <Button label="prev" onClick={prev} />
           <Button label="next" onClick={next} />
         </div>
+      </div>
+      {/* el equipo */}
+      <div className="team">
+        <h2>Mi Equipo</h2>
+        {team.map((pokemon, index) => (
+          <div key={index} className="team-member">
+            <button className="plusMinus" onClick={() => removeFromTeam(index)}>
+              -
+            </button>
+            <span>{pokemon.name}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
